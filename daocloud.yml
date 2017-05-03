@@ -1,0 +1,139 @@
+version: "3.0"
+stages:
+- 构建阶段
+account-service-package:
+  stage: 构建阶段
+  job_type: lite_image_build
+  only:
+    branches:
+    - master
+  compile:
+    dockerfile_path: /account-service/Dockerfile-package
+    build_dir: /account-service
+    cache: true
+  extract:
+  - /usr/src/project/target/account-service.jar
+  package:
+    dockerfile_path: /account-service/Dockerfile
+    build_dir: /account-service
+    cache: true
+
+auth-service-package:
+  stage: 构建阶段
+  job_type: lite_image_build
+  only:
+    branches:
+    - master
+  compile:
+    dockerfile_path: /auth-service/Dockerfile-package
+    build_dir: /auth-service
+    cache: true
+  extract:
+  - /usr/src/project/target/auth-service.jar
+  package:
+    dockerfile_path: /auth-service/Dockerfile
+    build_dir: /auth-service
+    cache: true
+
+config-package:
+  stage: 构建阶段
+  job_type: lite_image_build
+  only:
+    branches:
+    - master
+  compile:
+    dockerfile_path: /config/Dockerfile-package
+    build_dir: /config
+    cache: true
+  extract:
+  - /usr/src/project/target/config.jar
+  package:
+    dockerfile_path: /config/Dockerfile
+    build_dir: /config
+    cache: true
+
+gateway-package:
+  stage: 构建阶段
+  job_type: lite_image_build
+  only:
+    branches:
+    - master
+  compile:
+    dockerfile_path: /gateway/Dockerfile-package
+    build_dir: /gateway
+    cache: true
+  extract:
+  - /usr/src/project/target/gateway.jar
+  package:
+    dockerfile_path: /gateway/Dockerfile
+    build_dir: /gateway
+    cache: true
+
+
+monitoring-package:
+  stage: 构建阶段
+  job_type: lite_image_build
+  only:
+    branches:
+    - master
+  compile:
+    dockerfile_path: /monitoring/Dockerfile-package
+    build_dir: /monitoring
+    cache: true
+  extract:
+  - /usr/src/project/target/monitoring.jar
+  package:
+    dockerfile_path: /monitoring/Dockerfile
+    build_dir: /monitoring
+    cache: true
+
+notification-service-package:
+  stage: 构建阶段
+  job_type: lite_image_build
+  only:
+    branches:
+    - master
+  compile:
+    dockerfile_path: /notification-service/Dockerfile-package
+    build_dir: /notification-service
+    cache: true
+  extract:
+  - /usr/src/project/target/notification-service.jar
+  package:
+    dockerfile_path: /notification-service/Dockerfile
+    build_dir: /notification-service
+    cache: true
+
+registry-package:
+  stage: 构建阶段
+  job_type: lite_image_build
+  only:
+    branches:
+    - master
+  compile:
+    dockerfile_path: /registry/Dockerfile-package
+    build_dir: /registry
+    cache: true
+  extract:
+  - /usr/src/project/target/registry.jar
+  package:
+    dockerfile_path: /registry/Dockerfile
+    build_dir: /registry
+    cache: true
+
+statistics-service-package:
+  stage: 构建阶段
+  job_type: lite_image_build
+  only:
+    branches:
+    - master
+  compile:
+    dockerfile_path: /statistics-service/Dockerfile-package
+    build_dir: /statistics-service
+    cache: true
+  extract:
+  - /usr/src/project/target/statistics-service.jar
+  package:
+    dockerfile_path: /statistics-service/Dockerfile
+    build_dir: /statistics-service
+    cache: true
