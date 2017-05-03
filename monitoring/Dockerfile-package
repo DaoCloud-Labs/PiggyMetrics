@@ -1,0 +1,6 @@
+FROM maven:3.5.0-jdk-8
+MAINTAINER yann <yann.xia@daocloud.io>
+
+ADD . /usr/src/project
+WORKDIR /usr/src/project
+RUN mvn package
